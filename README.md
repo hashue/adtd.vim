@@ -9,6 +9,10 @@ e.g [vim-plug](https://github.com/junegunn/vim-plug)
 ```
 Plug 'hashue/adtd.vim'
 ```
+You have to setting todoist's token
+```
+let g:adtd_token = 'your todoist's token
+```
 
 ## Usage
 ```
@@ -18,6 +22,7 @@ Plug 'hashue/adtd.vim'
 "delete task
 :Tsad
 ```
+
 ## Author
 Hasu
 
