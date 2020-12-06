@@ -3,6 +3,7 @@ This plug in enable add and delete task to [todoist.com](https://todoist.com/) f
 
 ## Installation
 Install this plugin
+
 e.g [vim-plug](https://github.com/junegunn/vim-plug)
 
 ```
