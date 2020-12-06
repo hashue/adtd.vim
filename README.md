@@ -11,7 +11,7 @@ Plug 'hashue/adtd.vim'
 ```
 You have to setting todoist's token
 ```
-let g:adtd_token = 'your todoist's token
+let g:adtd_token = 'your todoist's token'
 ```
 
 ## Usage
