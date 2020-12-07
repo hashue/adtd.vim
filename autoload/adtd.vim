@@ -1,5 +1,5 @@
 
-function! adtd#getAllTask() abort
+function! adtd#getAllTask(func_method) abort
     let token = get(g:, 'adtd_token', '')
 	let method = 'GET' 
 	let curl=printf('curl -X %s  -Ss https://api.todoist.com/rest/v1/tasks  -H "Authorization: Bearer %s"',method,token)
@@ -15,12 +15,21 @@ function! adtd#getAllTask() abort
 		let task_info.id = decoded[i]["id"]
 		let task_info.no = i
 
-		echo task_info 
+		echo printf("[%s] %s\n",task_info.no,task_info.taskName)
 		let i += 1 
 	endwhile
 
+	if a:func_method == 'delete'
+		call adtd#generateDeleteTaskInfo(decoded)
+	endif
+
+endfunction
+
+function! adtd#generateDeleteTaskInfo(decoded) abort
+    let token = get(g:, 'adtd_token', '')
+
 	let selected = input("Which one do you want to delete? ")
-	let needDelId =  decoded[selected]["id"]
+	let needDelId =  a:decoded[selected]["id"]
 
 	let confirmDelete = input("\nAre you sure you want to delete? [y/n]\n")
 
@@ -31,8 +40,6 @@ function! adtd#getAllTask() abort
 	elseif confirmDelete == 'n'
 		echo "\ncanceled"
 	endif
-
-
 endfunction
 
 function! adtd#execDelete(method,id,token) abort

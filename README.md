@@ -17,10 +17,13 @@ let g:adtd_token = 'your todoist's token'
 ## Usage
 ```
 "add task
-:Tsl
+:Tsad
 
 "delete task
-:Tsad
+:Tsdel
+
+"list task
+:Tsl
 ```
 
 ## Author
