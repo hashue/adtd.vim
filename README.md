@@ -24,6 +24,9 @@ let g:adtd_token = 'your todoist's token'
 
 "list task
 :Tsl
+
+"list project
+:Tspro
 ```
 
 ## Author
