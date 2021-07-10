@@ -9,7 +9,7 @@ function! adtd#getAllProject() abort
     let project_info.id = res[i]["id"]
     let project_info.no = i
     echo printf("[%s] %s\n",project_info.no,project_info.projectName)
-    let i += 1 
+    let i += 1
   endwhile
 
 
@@ -26,7 +26,7 @@ function! adtd#getAllProject() abort
   while i < len(res)
 
     if res[i]["project_id"] != need_to_see_project
-      let i += 1 
+      let i += 1
       continue
     endif
 
@@ -41,16 +41,16 @@ function! adtd#getAllProject() abort
 
       echo printf("・%s\n",project_info.projectName)
 
-      let i += 1 
+      let i += 1
   endwhile
 
 endfunction
 
 
 function! adtd#execCurl(action,data) abort
-  let token = get(g:, 'adtd_token', '') 
+  let token = get(g:, 'adtd_token', '')
 
-  if a:action == 'GET' 
+  if a:action == 'GET'
     let curl=printf('curl -X GET -Ss https://api.todoist.com/rest/v1/tasks  -H "Authorization: Bearer %s"',token)
   endif
 
@@ -93,7 +93,7 @@ function! adtd#getAllTask(func_method) abort
     endif
 
     echo printf("%s %s\n",task_info.no,task_info.taskName)
-    let i += 1 
+    let i += 1
   endwhile
 
 
@@ -107,7 +107,7 @@ function! adtd#dispTask(task_info) abort
   let i = 0
   while i < len(a:task_info)
     echo printf("[%s] %s\n",a:task_info.no,a:task_info.taskName)
-    let i += 1 
+    let i += 1
   endwhile
 
 endfunction
@@ -131,7 +131,6 @@ function! adtd#generateDeleteTaskInfo(decoded) abort
 endfunction
 
 
-" 
 function! adtd#addTask() abort
   let taskName = input("task name :")
 
